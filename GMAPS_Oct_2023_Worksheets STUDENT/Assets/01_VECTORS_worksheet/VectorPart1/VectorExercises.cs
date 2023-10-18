@@ -58,7 +58,14 @@ public class VectorExercises : MonoBehaviour
 
     void Question2b(int n)
     {
+        for (int i = 0; i < n; i++)
+        {
+            startPt = new Vector2(Random.Range(-5,6), (-5,6));
+            endPt = new Vector2(Random.Range(maxY, maxY), (5));
+            drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
 
+            drawnLine.EnableDrawing(true);
+        }
     }
 
     void Question2d()
