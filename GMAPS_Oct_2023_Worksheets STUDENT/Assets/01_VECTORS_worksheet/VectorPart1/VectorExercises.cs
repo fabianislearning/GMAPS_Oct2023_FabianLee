@@ -20,6 +20,7 @@ public class VectorExercises : MonoBehaviour
         if (Q2a)
             Question2a();
         if (Q2b)
+            CalculateGameDimensions();
             Question2b(20);
         if (Q2d)
             Question2d();
@@ -37,7 +38,13 @@ public class VectorExercises : MonoBehaviour
 
     public void CalculateGameDimensions()
     {
+        GameHeight = Camera.main.orthographicSize * 2f;
+        GameWidth = Camera.main.aspect * GameHeight;
 
+        maxX = GameWidth / 2;
+        maxY = GameHeight / 2;
+        minX = -maxX;
+        minY = -maxY;
     }
 
     void Question2a()
@@ -58,13 +65,16 @@ public class VectorExercises : MonoBehaviour
 
     void Question2b(int n)
     {
+        minX = 5; minY = 5; maxX = 5; maxY = 5;
         for (int i = 0; i < n; i++)
         {
-            startPt = new Vector2(Random.Range(-5,6), (-5,6));
-            endPt = new Vector2(Random.Range(maxY, maxY), (5));
+            startPt = new Vector2(Random.Range(-minX, maxX), Random.Range(-minY, maxY));
+            endPt = new Vector2(Random.Range(-minX, maxX), Random.Range(-minY, maxY));
             drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
 
             drawnLine.EnableDrawing(true);
+            Debug.Log("startpt: " + startPt);
+            Debug.Log("endpt: " + endPt);
         }
     }
 
