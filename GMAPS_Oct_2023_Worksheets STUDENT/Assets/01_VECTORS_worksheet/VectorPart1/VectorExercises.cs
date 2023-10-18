@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class VectorExercises : MonoBehaviour
 {
+    //The LineFactory is responsible for creating and getting the lines
     [SerializeField] LineFactory lineFactory;
     [SerializeField] bool Q2a, Q2b, Q2d, Q2e;
     [SerializeField] bool Q3a, Q3b, Q3c, projection;
@@ -41,9 +42,13 @@ public class VectorExercises : MonoBehaviour
 
     void Question2a()
     {
+        //Define the lines starting position
         startPt = new Vector2(0, 0);
+        //Define the lines ending position
         endPt = new Vector2(2, 3);
 
+        //The order of the properties: Vector2 start, Vector2 end, float width, Color color)
+        //Width is representing how thick the line is
         drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
         drawnLine.EnableDrawing(true);
 
