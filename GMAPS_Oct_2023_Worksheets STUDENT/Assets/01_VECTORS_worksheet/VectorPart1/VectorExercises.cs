@@ -85,6 +85,8 @@ public class VectorExercises : MonoBehaviour
 
     void Question2e(int n)
     {
+        CalculateGameDimensions();
+        minX = 5; minY = 5; maxX = 5; maxY = 5;
         for (int i = 0; i < n; i++)
         {
             DebugExtension.DebugArrow(new Vector3(0, 0, 0), 
