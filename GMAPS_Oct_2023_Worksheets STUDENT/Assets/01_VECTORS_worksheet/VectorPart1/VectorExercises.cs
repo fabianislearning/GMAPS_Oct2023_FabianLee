@@ -20,7 +20,6 @@ public class VectorExercises : MonoBehaviour
         if (Q2a)
             Question2a();
         if (Q2b)
-            CalculateGameDimensions();
             Question2b(20);
         if (Q2d)
             Question2d();
@@ -65,6 +64,7 @@ public class VectorExercises : MonoBehaviour
 
     void Question2b(int n)
     {
+        CalculateGameDimensions();
         minX = 5; minY = 5; maxX = 5; maxY = 5;
         for (int i = 0; i < n; i++)
         {
@@ -87,10 +87,6 @@ public class VectorExercises : MonoBehaviour
     {
         for (int i = 0; i < n; i++)
         {
-            startPt = new Vector2(
-                Random.Range(-maxX, maxX), 
-                Random.Range(-maxY, maxY));
-
             DebugExtension.DebugArrow(new Vector3(0, 0, 0), 
                 new Vector3(Random.Range(-minX, maxX), 
                 Random.Range(-minY, maxY), 0), Color.white, 60f);
@@ -100,10 +96,13 @@ public class VectorExercises : MonoBehaviour
     public void Question3a()
     {
         HVector2D a = new HVector2D(3, 5);
-        //HVector2D b = // Your code here;
-        //HVector2D c = // Your code here;
+        HVector2D b = new HVector2D(-4, 2);
+        HVector2D c = new HVector2D(a.x + b.x, a.y + b.y);
 
         DebugExtension.DebugArrow(Vector3.zero, a.ToUnityVector3(), Color.red, 60f);
+        DebugExtension.DebugArrow(Vector3.zero, b.ToUnityVector3(), Color.green, 60f);
+        DebugExtension.DebugArrow(Vector3.zero, c.ToUnityVector3(), Color.white, 60f);
+        DebugExtension.DebugArrow(Vector3.zero, b.ToUnityVector2(), Color.white, 60f);
         // Your code here
         // ...
 
