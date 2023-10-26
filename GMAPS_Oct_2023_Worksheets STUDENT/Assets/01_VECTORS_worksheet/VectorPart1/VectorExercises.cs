@@ -1,3 +1,4 @@
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class VectorExercises : MonoBehaviour
@@ -107,8 +108,9 @@ public class VectorExercises : MonoBehaviour
         DebugExtension.DebugArrow(new Vector2(a.x, a.y), b.ToUnityVector3(), Color.green, 60f);
        
         //Debug.Log("Magnitude of a = " +  // Your code here.ToString("F2"));
-        // Your code here
-        // ...
+        Debug.Log("Magnitude of a = " + a.Magnitude().ToString("F2"));
+        Debug.Log("Magnitude of b = " + b.Magnitude().ToString("F2"));
+        Debug.Log("Magnitude of c = " + c.Magnitude().ToString("F2"));
     }
 
     public void Question3b()
