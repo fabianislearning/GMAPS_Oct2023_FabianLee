@@ -12,8 +12,9 @@ public class FirstLaw : MonoBehaviour
     {
         //Get the RigidBody component which is attached to the GameObject.
         rb = GetComponent<Rigidbody>();
-        //The force variable will affect where the ball will be located at via the transform (position) property
-        rb.transform.position = force;
+        /* There are different force modes when it comes to adding a force, 
+        the Impulse mode involves taking the Rigidbody's mass andd applying a sudden burst of force to the object */
+        rb.AddForce(force, ForceMode.Impulse);
     }
 
     void FixedUpdate()
