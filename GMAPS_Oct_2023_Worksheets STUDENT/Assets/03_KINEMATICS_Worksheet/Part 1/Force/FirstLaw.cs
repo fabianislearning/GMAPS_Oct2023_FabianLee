@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-public class FirstLaw : MonoBehaviour
-{
-    public Vector3 force;
-    Rigidbody rb;
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.forward *10f *Time.deltaTime);
-    }
+// public class FirstLaw : MonoBehaviour
+// {
+//     public Vector3 force;
+//     Rigidbody rb;
 
-    void FixedUpdate()
-    {
-       Debug.Log(transform.position);  
-    }
-}
+//     void Start()
+//     {
+//         rb = // your code here;
+//         rb.// your code here;
+//     }
+
+//     void FixedUpdate()
+//     {
+//         Debug.Log(transform.position);
+//     }
+// }
 
