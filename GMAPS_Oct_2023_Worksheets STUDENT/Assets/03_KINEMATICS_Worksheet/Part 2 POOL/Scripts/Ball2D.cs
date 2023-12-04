@@ -21,20 +21,19 @@ public class Ball2D : MonoBehaviour
         Vector2 local_sprite_size = sprite_size / sprite.pixelsPerUnit;
         Radius = local_sprite_size.x / 2f;
 
-
-        HVector2D a = new HVector2D(2f, 5f);
-        HVector2D b = new HVector2D(5f, 0f);
-        float distance = Util.FindDistance(a, b);
-        Debug.Log("Distance: " + distance);
+        //HVector2D a = new HVector2D(8f, 5f);
+        //HVector2D b = new HVector2D(1f, 3f);
+        //float distance = Util.FindDistance(a, b);
+        //Debug.Log("Distance: " + distance);
     }
 
-/*    public bool IsCollidingWith(float x, float y)
+    public bool IsCollidingWith(float x, float y)
     {
-        float distance = *//*your code here*//*;
+        float distance = Mathf.Sqrt(Mathf.Pow(x, 2) + Mathf.Pow(y, 2));
         return distance <= Radius;
     }
 
-    public bool IsCollidingWith(Ball2D other)
+    /*public bool IsCollidingWith(Ball2D other)
     {
         float distance = Util.FindDistance(Position, other.Position);
         return distance <= Radius + other.Radius;
@@ -47,13 +46,13 @@ public class Ball2D : MonoBehaviour
 
     private void UpdateBall2DPhysics(float deltaTime)
     {
-        float displacementX = *//*your code here*//*;
-        float displacementY = *//*your code here*//*;
+        float displacementX = your code here;
+        float displacementY = your code here;
 
-        Position.x += *//*your code here*//*;
-        Position.y += *//*your code here*//*;
+        Position.x += your code here;
+        Position.y += your code here;
 
-        transform.position = new Vector2(*//*your code here*//*);
+        transform.position = new Vector2(your code here);
     }*/
 }
 
