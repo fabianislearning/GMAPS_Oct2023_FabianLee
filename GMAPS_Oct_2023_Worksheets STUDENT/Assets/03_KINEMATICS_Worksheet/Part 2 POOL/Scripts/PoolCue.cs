@@ -27,21 +27,21 @@ public class PoolCue : MonoBehaviour
 				drawnLine.EnableDrawing(true);
 			}
 		}
-		else if (Input.GetMouseButtonUp(0) && drawnLine != null)
+		/*else if (Input.GetMouseButtonUp(0) && drawnLine != null)
 		{
 			drawnLine.EnableDrawing(false);
 
 			//update the velocity of the white ball.
-			HVector2D v = new HVector2D(/*your code here*/);
-			ball./*your code here*/ = v;
+			HVector2D v = new HVector2D(*//*your code here*//*);
+			ball.*//*your code here*//* = v;
 
 			drawnLine = null; // End line drawing            
-		}
+		}*/
 
-		if (drawnLine != null)
+		/*if (drawnLine != null)
 		{
 			drawnLine.end = lineFactory.GetLine(Input.mousePosition, null, 0.02f, Color.black); // Update line end
-		}
+		}*/
 	}
 
 	/// <summary>
