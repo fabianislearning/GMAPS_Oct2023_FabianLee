@@ -21,27 +21,27 @@ public class PoolCue : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 		{
 			var startLinePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Start line drawing
-			if (ball != null && ball.IsCollidingWith(ball.Position.x, Input.mousePosition.x))
+			if (ball != null && ball.IsCollidingWith(startLinePos.x, startLinePos.y))
 			{
-				drawnLine = lineFactory.GetLine(startLinePos,Input.mousePosition, 0.02f, Color.black);
+				drawnLine = lineFactory.GetLine(startLinePos,Input.mousePosition, 2f, Color.black);
 				drawnLine.EnableDrawing(true);
 			}
 		}
-		/*else if (Input.GetMouseButtonUp(0) && drawnLine != null)
+		else if (Input.GetMouseButtonUp(0) && drawnLine != null)
 		{
 			drawnLine.EnableDrawing(false);
 
 			//update the velocity of the white ball.
-			HVector2D v = new HVector2D(*//*your code here*//*);
-			ball.*//*your code here*//* = v;
+			HVector2D v = new HVector2D(drawnLine.end - drawnLine.start);
+			ball.Velocity = v;
 
 			drawnLine = null; // End line drawing            
-		}*/
+		}
 
-		/*if (drawnLine != null)
+		if (drawnLine != null)
 		{
-			drawnLine.end = lineFactory.GetLine(Input.mousePosition, null, 0.02f, Color.black); // Update line end
-		}*/
+			drawnLine.end = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Update line end
+		}
 	}
 
 	/// <summary>
