@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HMatrix2D 
@@ -42,24 +43,36 @@ public class HMatrix2D
 
     public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
     {
-        return left + right;
+        for (int y = 0; y < 3 ;y++)             //Do for each row
+            for (int x = 0; x < 3 ;x++)         //Do for each col
+                new HMatrix2D().Entries[x, y] = left.Entries[x, y] + right.Entries[x, y];
+        return new HMatrix2D();
     }
 
     public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
     {
-        return left - right;
+        for (int y = 0; y < 3 ;y++)
+            for (int x = 0; x < 3 ;x++)
+                new HMatrix2D().Entries[x, y] = left.Entries[x, y] - right.Entries[x, y];
+        return new HMatrix2D();
     }
 
     public static HMatrix2D operator *(HMatrix2D left, float scalar)
     {
-        return left * scalar;
+        for (int y = 0; y < 3; y++)
+            for (int x = 0; x < 3; x++)
+                new HMatrix2D().Entries[x,y] = left.Entries[x, y] * scalar;
+        return new HMatrix2D();
     }
 
     // Note that the second argument is a HVector2D object
-    //
     public static HVector2D operator *(HMatrix2D left, HVector2D right)
     {
-        return left * right;
+        return new HVector2D
+        (
+            left.Entries[0,0] * right.x + left.Entries[0,0] * right.y + 1,
+            left.Entries[1,0] * right.x + left.Entries[1,0] * right.y + 1
+        );
     }
 
     // Note that the second argument is a HMatrix2D object
@@ -182,12 +195,19 @@ public class HMatrix2D
 
     public void SetTranslationMat(float transX, float transY)
     {
-        // your code here
+        SetIdentity();
+        Entries[0, 0] = transX;
+        Entries[1, 0] = transY;
     }
 
     public void SetRotationMat(float rotDeg)
     {
-        // your code here
+        SetIdentity();
+        float rad = rotDeg * Mathf.Deg2Rad;
+        Entries[0, 0] = Mathf.Cos(rad);
+        Entries[0, 1] = -Mathf.Sin(rad);
+        Entries[1, 0] = Mathf.Sin(rad);
+        Entries[1, 1] = Mathf.Cos(rad);
     }
 
     public void SetScalingMat(float scaleX, float scaleY)
