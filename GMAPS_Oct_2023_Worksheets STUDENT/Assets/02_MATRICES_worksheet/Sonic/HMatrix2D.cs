@@ -40,73 +40,117 @@ public class HMatrix2D
         Entries[2, 2] = m22;
     }
 
-/*    public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
+    public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
     {
-        return // your code here
+        return left + right;
     }
 
     public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
     {
-        return // your code here
+        return left - right;
     }
 
     public static HMatrix2D operator *(HMatrix2D left, float scalar)
     {
-        return // your code here
+        return left * scalar;
     }
 
     // Note that the second argument is a HVector2D object
     //
     public static HVector2D operator *(HMatrix2D left, HVector2D right)
     {
-        return // your code here
+        return left * right;
     }
 
     // Note that the second argument is a HMatrix2D object
-    //
     public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
     {
         return new HMatrix2D
         (
-
-            00 01 02    00 xx xx
-            xx xx xx    10 xx xx
-            xx xx xx    20 xx xx
-
-
+            //00 01 02    00 xx xx
+            //xx xx xx    10 xx xx
+            //xx xx xx    20 xx xx
             left.Entries[0, 0] * right.Entries[0, 0] + left.Entries[0, 1] * right.Entries[1, 0] + left.Entries[0, 2] * right.Entries[2, 0],
 
 
-            00 01 02    xx 01 xx
-            xx xx xx    xx 11 xx
-            xx xx xx    xx 21 xx
-
-
+            //00 01 02    xx 01 xx
+            //xx xx xx    xx 11 xx
+            //xx xx xx    xx 21 xx
             left.Entries[0, 0] * right.Entries[0, 1] + left.Entries[0, 1] * right.Entries[1, 1] + left.Entries[0, 2] * right.Entries[2, 1],
 
-        // and so on for another 7 entries
+            // and so on for another 7 entries
+
+
+            //00 01 02    xx xx 02
+            //xx xx xx    xx xx 12
+            //xx xx xx    xx xx 22
+            left.Entries[0, 0] * right.Entries[0, 2] + left.Entries[0, 1] * right.Entries[1, 2] + left.Entries[0, 2] * right.Entries[2, 2],
+
+
+            //xx xx xx    00 xx xx
+            //10 11 12    10 xx xx
+            //xx xx xx    20 xx xx
+            left.Entries[1, 0] * right.Entries[0, 0] + left.Entries[1, 1] * right.Entries[1, 0] + left.Entries[1, 2] * right.Entries[2, 0],
+
+
+            //xx xx xx    xx 01 xx
+            //10 11 12    xx 11 xx
+            //xx xx xx    xx 21 xx
+            left.Entries[1, 0] * right.Entries[0, 1] + left.Entries[1, 1] * right.Entries[1, 1] + left.Entries[1, 2] * right.Entries[2, 1],
+
+
+            //xx xx xx    xx xx 02
+            //10 11 12    xx xx 12
+            //xx xx xx    xx xx 22
+            left.Entries[1, 0] * right.Entries[0, 2] + left.Entries[1, 1] * right.Entries[1, 2] + left.Entries[1, 2] * right.Entries[2, 2],
+
+
+            //xx xx xx    00 xx xx
+            //xx xx xx    10 xx xx
+            //20 21 22    20 xx xx
+            left.Entries[2, 0] * right.Entries[0, 0] + left.Entries[2, 1] * right.Entries[1, 0] + left.Entries[2, 2] * right.Entries[2, 0],
+
+
+            //xx xx xx    xx 01 xx
+            //xx xx xx    xx 11 xx
+            //20 21 22    xx 21 xx
+            left.Entries[2, 0] * right.Entries[0, 1] + left.Entries[2, 1] * right.Entries[1, 1] + left.Entries[2, 2] * right.Entries[2, 1],
+
+
+            //xx xx xx    xx xx 02
+            //xx xx xx    xx xx 12
+            //20 21 22    xx xx 22
+            left.Entries[2, 0] * right.Entries[0, 2] + left.Entries[2, 1] * right.Entries[1, 2] + left.Entries[2, 2] * right.Entries[2, 2]
     );
     }
 
     public static bool operator ==(HMatrix2D left, HMatrix2D right)
     {
-        // your code here
+        for (int y = 0; y < 3; y++)
+            for (int x = 0; x < 3; x++)
+                if (left.Entries != right.Entries)
+                    return false;
+        return true;
     }
 
     public static bool operator !=(HMatrix2D left, HMatrix2D right)
     {
-        // your code here
+        for (int y = 0; y < 3; y++)
+            for (int x = 0; x < 3; x++)
+                if (left.Entries != right.Entries)
+                    return true;
+        return false;
     }
 
-    public HMatrix2D transpose()
-    {
-        return // your code here
-    }
+    //public HMatrix2D transpose()
+    //{
+    //    return // your code here
+    //}
 
-    public float GetDeterminant()
-    {
-        return // your code here
-    }*/
+    //public float GetDeterminant()
+    //{
+    //    return // your code here
+    //}
 
     public void SetIdentity()
     {
