@@ -45,29 +45,29 @@ public class SoccerPlayer : MonoBehaviour
 
     //}
 
-    SoccerPlayer FindClosestPlayerDot()
-    {
-        SoccerPlayer closest = null;
-        float minAngle = 180f;
+    //SoccerPlayer FindClosestPlayerDot()
+    //{
+    //    SoccerPlayer closest = null;
+    //    float minAngle = 180f;
 
-        for (int i = 0; i < OtherPlayers.Length; i++)
-        {
-            Vector3 toPlayer = OtherPlayers[i].transform.position;
-            closest = Normalise(toPlayer);
+    //    for (int i = 0; i < OtherPlayers.Length; i++)
+    //    {
+    //        Vector3 toPlayer = OtherPlayers[i].transform.position;
+    //        closest = Normalise(toPlayer);
 
-            float dot = Dot(toPlayer);
-            float angle = Mathf.Acos(dot);
-            angle = angle * Mathf.Rad2Deg;
+    //        float dot = Dot(toPlayer);
+    //        float angle = Mathf.Acos(dot);
+    //        angle = angle * Mathf.Rad2Deg;
 
-            if (angle < minAngle)
-            {
-                minAngle = angle;
-                closest = transform.position;
-            }
-        }
+    //        if (angle < minAngle)
+    //        {
+    //            minAngle = angle;
+    //            closest = transform.position;
+    //        }
+    //    }
 
-        return closest;
-    }
+    //    return closest;
+    //}
 
     void DrawVectors()
     {
