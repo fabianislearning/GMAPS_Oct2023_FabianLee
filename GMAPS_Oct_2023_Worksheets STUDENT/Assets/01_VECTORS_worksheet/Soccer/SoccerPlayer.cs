@@ -30,20 +30,26 @@ public class SoccerPlayer : MonoBehaviour
         Debug.Log(OtherPlayers.Length);*/
     }
 
-    //float Magnitude(Vector3 vector)
-    //{
+    float Magnitude(Vector3 vector)
+    {
+        Vector3 vectorA = transform.forward;
+        return Mathf.Sqrt(vectorA.x * vectorA.x + vectorA.y * vectorA.y);
+    }
 
-    //}
+    Vector3 Normalise(Vector3 vector)
+    {
+        float mag = Magnitude(vector);
+        vector.x /= mag;
+        vector.y /= mag;
 
-    //Vector3 Normalise(Vector3 vector)
-    //{
+        return vector;
+    }
 
-    //}
-
-    //float Dot(Vector3 vectorA, Vector3 vectorB)
-    //{
-
-    //}
+    float Dot(Vector3 vectorB)
+    {
+        Vector3 vectorA = transform.forward;
+        return (vectorA.x * vectorB.x) + (vectorA.y * vectorB.y) + (vectorA.z * vectorB.z);
+    }
 
     //SoccerPlayer FindClosestPlayerDot()
     //{
@@ -73,8 +79,10 @@ public class SoccerPlayer : MonoBehaviour
     {
         foreach (SoccerPlayer other in OtherPlayers)
         {
-            // Your code here
-            // ...
+            if (OtherPlayers.Length < other.OtherPlayers.Length)
+            {
+                DebugExtension.DebugArrow(transform.position, other.transform.position - transform.position, Color.black);
+            }
         }
     }
 
